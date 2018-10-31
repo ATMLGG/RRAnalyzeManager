@@ -39,80 +39,98 @@ static char * TrackSeted = "TrackSeted";
 }
 
 - (void) ex_viewDidLoad{
-    switch ([RRAnalyzeManager shareManager].trackPattern) {
-        case AnalyzePatternTrackAll:{
-            if (!self.trackScreen && self.trackSeted) {
+    
+    if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachFirebase &&
+        !([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachNone)) {
+        
+        switch ([RRAnalyzeManager shareManager].trackPattern) {
+                case AnalyzePatternTrackAll:{
+                    if (!self.trackScreen && self.trackSeted) {
+                        break;
+                    }
+                    [RRAnalyzeManager trackScreen:NSStringFromClass([self class])];
+                }
                 break;
-            }
-            [RRAnalyzeManager trackScreen:NSStringFromClass([self class])];
-        }
-            break;
-        case AnalyzePatternTrackNone:{
-            if (self.trackScreen) {
+                case AnalyzePatternTrackNone:{
+                    if (self.trackScreen) {
+                        [RRAnalyzeManager trackScreen:NSStringFromClass([self class])];
+                    }
+                }
+                break;
+            default:
+                if (!self.trackScreen && self.trackSeted) {
+                    break;
+                }
                 [RRAnalyzeManager trackScreen:NSStringFromClass([self class])];
-            }
-        }
-            break;
-        default:
-            if (!self.trackScreen && self.trackSeted) {
                 break;
-            }
-            [RRAnalyzeManager trackScreen:NSStringFromClass([self class])];
-            break;
+        }
     }
     
     [self ex_viewDidLoad];
 }
 
 - (void) ex_viewWillAppear:(BOOL) animated{
-    switch ([RRAnalyzeManager shareManager].trackPattern) {
-        case AnalyzePatternTrackAll:{
-            if (!self.trackScreen && self.trackSeted) {
+    
+    if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachUMeng &&
+        !([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachNone)) {
+        
+        switch ([RRAnalyzeManager shareManager].trackPattern) {
+                case AnalyzePatternTrackAll:{
+                    if (!self.trackScreen && self.trackSeted) {
+                        break;
+                    }
+                    [RRAnalyzeManager trackUMengBeginScreen:NSStringFromClass([self class])];
+                }
                 break;
-            }
-            [RRAnalyzeManager trackUMengBeginScreen:NSStringFromClass([self class])];
-        }
-            break;
-        case AnalyzePatternTrackNone:{
-            if (self.trackScreen) {
+                case AnalyzePatternTrackNone:{
+                    if (self.trackScreen) {
+                        [RRAnalyzeManager trackUMengBeginScreen:NSStringFromClass([self class])];
+                    }
+                }
+                break;
+            default:{
+                if (!self.trackScreen && self.trackSeted) {
+                    break;
+                }
                 [RRAnalyzeManager trackUMengBeginScreen:NSStringFromClass([self class])];
             }
-        }
-            break;
-        default:{
-            if (!self.trackScreen && self.trackSeted) {
                 break;
-            }
-            [RRAnalyzeManager trackUMengBeginScreen:NSStringFromClass([self class])];
         }
-            break;
+        
     }
+    
     [self ex_viewWillAppear:animated];
 }
 
 - (void) ex_viewWillDisappear:(BOOL) animated{
-    switch ([RRAnalyzeManager shareManager].trackPattern) {
-        case AnalyzePatternTrackAll:{
-            if (!self.trackScreen && self.trackSeted) {
+    
+    if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachUMeng &&
+        !([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachNone)) {
+        
+        switch ([RRAnalyzeManager shareManager].trackPattern) {
+                case AnalyzePatternTrackAll:{
+                    if (!self.trackScreen && self.trackSeted) {
+                        break;
+                    }
+                    [RRAnalyzeManager trackUMengEndScreen:NSStringFromClass([self class])];
+                }
                 break;
-            }
-            [RRAnalyzeManager trackUMengEndScreen:NSStringFromClass([self class])];
-        }
-            break;
-        case AnalyzePatternTrackNone:{
-            if (self.trackScreen) {
+                case AnalyzePatternTrackNone:{
+                    if (self.trackScreen) {
+                        [RRAnalyzeManager trackUMengEndScreen:NSStringFromClass([self class])];
+                    }
+                }
+                break;
+            default:{
+                if (!self.trackScreen && self.trackSeted) {
+                    break;
+                }
                 [RRAnalyzeManager trackUMengEndScreen:NSStringFromClass([self class])];
             }
-        }
-            break;
-        default:{
-            if (!self.trackScreen && self.trackSeted) {
                 break;
-            }
-            [RRAnalyzeManager trackUMengEndScreen:NSStringFromClass([self class])];
         }
-            break;
     }
+    
     [self ex_viewWillDisappear:animated];
 }
 

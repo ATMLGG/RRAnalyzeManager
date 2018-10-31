@@ -16,6 +16,7 @@
     dispatch_once(&onceToken, ^{
         manager = [RRAnalyzeManager new];
         manager.trackPattern = AnalyzePatternTrackAll;
+        manager.trackApproach = AnalyzeApproachNone;
     });
     
     return manager;
@@ -23,7 +24,8 @@
 
 + (void) trackEvent:(NSString *) event{
     
-    if ([RRAnalyzeManager shareManager].trackPattern != AnalyzePatternDebug) {
+    if ([RRAnalyzeManager shareManager].trackPattern != AnalyzePatternDebug &&
+        !([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachNone)) {
         
         if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachFirebase) {
             [FIRAnalytics logEventWithName:event parameters:nil];
@@ -45,7 +47,8 @@
 
 + (void) trackEvent:(NSString *) event value:(NSDictionary *) paramter{
     
-    if ([RRAnalyzeManager shareManager].trackPattern != AnalyzePatternDebug) {
+    if ([RRAnalyzeManager shareManager].trackPattern != AnalyzePatternDebug &&
+        !([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachNone)) {
         
         if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachFirebase) {
             [FIRAnalytics logEventWithName:event parameters:paramter];        }

@@ -23,7 +23,7 @@
 		5163F235A5D3DEDE69F69114 /* Pods-RRAnalyzeManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RRAnalyzeManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-RRAnalyzeManager/Pods-RRAnalyzeManager.release.xcconfig"; sourceTree = "<group>"; };
 		B026B4A62188023D00E2285C /* RRAnalyzeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RRAnalyzeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B026B4A92188023D00E2285C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B026B4AA2188023D00E2285C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B026B4AA2188023D00E2285C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; wrapsLines = 0; };
 		B026B4AC2188023D00E2285C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B026B4AD2188023D00E2285C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B026B4B02188023D00E2285C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };

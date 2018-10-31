@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "RRAnalyze.h"
 
 @interface ViewController ()
 
@@ -19,16 +18,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    
-    [RRAnalyzeManager shareManager].trackPattern = AnalyzePatternTrackCustom;
-    [RRAnalyzeManager shareManager].trackDictionary = @{
-                                                        NSStringFromClass([self class]):@"showViewController"
-                                                        };
-    
-    [RRAnalyzeManager shareManager].trackApproach =
-    AnalyzeApproachFirebase | AnalyzeApproachUMeng | AnalyzeApproachFacebook;
-    
-    [RRAnalyzeManager trackEvent:@"123"];
 }
 
 

@@ -9,7 +9,7 @@ AF/FB/Firbase/友盟打点集成，屏幕追踪
 ```objc
     [RRAnalyzeManager shareManager].trackPattern = AnalyzePatternTrackCustom;
     [RRAnalyzeManager shareManager].trackDictionary = @{
-                                                        NSStringFromClass([self class]):@"showViewController",
+                                                        @"ViewController":@"showViewController",
                                                         @"OtherViewController":@"showOtherVC"
                                                         };
     

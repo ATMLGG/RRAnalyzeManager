@@ -24,11 +24,11 @@ typedef NS_ENUM(NSUInteger, AnalyzePattern) {
  *可同时使用多种方式
  */
 typedef enum AnalyzeApproach {
-    AnalyzeApproachNone         = 0,
-    AnalyzeApproachFacebook     = 1 << 0,
-    AnalyzeApproachFirebase     = 1 << 1,
-    AnalyzeApproachAppsFlyer    = 1 << 2,
-    AnalyzeApproachUMeng        = 1 << 3,
+    AnalyzeApproachNone         = 1,
+    AnalyzeApproachFacebook     = 1 << 1,
+    AnalyzeApproachFirebase     = 1 << 2,
+    AnalyzeApproachAppsFlyer    = 1 << 3,
+    AnalyzeApproachUMeng        = 1 << 4,
 } AnalyzeApproach;
 
 

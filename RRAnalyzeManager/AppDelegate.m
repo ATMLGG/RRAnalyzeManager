@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "RRAnalyze.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    [RRAnalyzeManager shareManager].trackPattern = AnalyzePatternTrackCustom;
+    [RRAnalyzeManager shareManager].trackDictionary = @{
+                                                        @"ViewController":@"showViewController",
+                                                        @"OtherViewController":@"showOtherVC"
+                                                        };
+    
+    [RRAnalyzeManager shareManager].trackApproach =
+    AnalyzeApproachFirebase | AnalyzeApproachFacebook | AnalyzeApproachNone;
+    
+//    [RRAnalyzeManager trackEvent:@"123"];
+//    [RRAnalyzeManager trackEvent:@"withValue" value:@{
+//                                                      @"userName":@"yyj"
+//                                                      }];
+    
     return YES;
 }
 
