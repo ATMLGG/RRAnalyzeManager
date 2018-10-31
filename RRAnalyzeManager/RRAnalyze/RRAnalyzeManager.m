@@ -22,6 +22,48 @@
     return manager;
 }
 
++ (void) initUMengWithAppkey:(NSString *)appkey
+                  andChannel:(NSString *)channel
+             andScenarioType:(eScenarioType)type {
+    
+    [UMConfigure initWithAppkey:appkey channel:channel];
+    [MobClick setScenarioType:type];
+    
+#ifdef DEBUG
+    [UMConfigure setLogEnabled:YES];
+#endif
+    
+}
+
++ (void) initFacebookWithApplication:(UIApplication *)application
+                    andLaunchOptions:(NSDictionary *)launchOptions {
+    
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
+}
+
++ (void) initFirebaseWithNothing {
+    
+    [FIRApp configure];
+}
+
++ (void) initAppsFlyerWithAppsFlyerDevKey:(NSString *)appsFlyerDevKey
+                            andAppleAppID:(NSString *)appleAppID {
+    
+    [AppsFlyerTracker sharedTracker].appsFlyerDevKey = appsFlyerDevKey;
+    [AppsFlyerTracker sharedTracker].appleAppID = appleAppID;
+    
+#ifdef DEBUG
+    [AppsFlyerTracker sharedTracker].isDebug = true;
+#endif
+}
+
++ (void) activeTrack {
+    
+    [FBSDKAppEvents activateApp];
+    [[AppsFlyerTracker sharedTracker] trackAppLaunch];
+}
+
 + (void) trackEvent:(NSString *) event{
     
     if ([RRAnalyzeManager shareManager].trackPattern != AnalyzePatternDebug &&

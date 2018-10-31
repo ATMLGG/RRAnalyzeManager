@@ -12,5 +12,10 @@
 #import "RRAnalyzeManager.h"
 #import "UIViewController+Analyze.h"
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <Firebase.h>
+#import <AppsFlyerLib/AppsFlyerTracker.h>
+#import <UMAnalytics/MobClick.h>
+#import <UMCommon/UMCommon.h>
 
 #endif /* RRAnalyze_h */

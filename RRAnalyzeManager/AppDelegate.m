@@ -19,24 +19,32 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    //UMeng
+    [RRAnalyzeManager initUMengWithAppkey:@"" andChannel:@"" andScenarioType:E_UM_NORMAL];
     
-    [RRAnalyzeManager shareManager].trackPattern = AnalyzePatternTrackCustom;
+    //FB
+    [RRAnalyzeManager initFacebookWithApplication:application andLaunchOptions:launchOptions];
+
+    //Firbase
+    [RRAnalyzeManager initFirebaseWithNothing];
+    
+    //AppsFlyer
+    [RRAnalyzeManager initAppsFlyerWithAppsFlyerDevKey:@"" andAppleAppID:@""];
+
+
+    [RRAnalyzeManager shareManager].trackPattern = AnalyzePatternDebug;
     [RRAnalyzeManager shareManager].trackDictionary = @{
                                                         @"ViewController":@"showViewController",
                                                         @"OtherViewController":@"showOtherVC"
                                                         };
     
-    [RRAnalyzeManager shareManager].trackApproach =
-    AnalyzeApproachFirebase | AnalyzeApproachFacebook | AnalyzeApproachNone;
-    
-//    [RRAnalyzeManager trackEvent:@"123"];
-//    [RRAnalyzeManager trackEvent:@"withValue" value:@{
-//                                                      @"userName":@"yyj"
-//                                                      }];
+    [RRAnalyzeManager trackEvent:@"123"];
+    [RRAnalyzeManager trackEvent:@"withValue" value:@{
+                                                      @"userName":@"yyj"
+                                                      }];
     
     return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -57,6 +65,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    [RRAnalyzeManager activeTrack];
 }
 
 

@@ -11,6 +11,7 @@
 #import <Firebase.h>
 #import <AppsFlyerLib/AppsFlyerTracker.h>
 #import <UMAnalytics/MobClick.h>
+#import <UMCommon/UMCommon.h>
 
 typedef NS_ENUM(NSUInteger, AnalyzePattern) {
     AnalyzePatternDebug,        //Debug模式，不跟踪页面和事件
@@ -41,6 +42,20 @@ typedef enum AnalyzeApproach {
 @property (nonatomic, strong) NSDictionary * trackDictionary;
 
 + (instancetype) shareManager;
+
++ (void) initUMengWithAppkey:(NSString *)channelId
+                  andChannel:(NSString *)channel
+             andScenarioType:(eScenarioType)type;
+
++ (void) initFacebookWithApplication:(UIApplication *)application
+                    andLaunchOptions:(NSDictionary *)launchOptions;
+
++ (void) initFirebaseWithNothing;
+
++ (void) initAppsFlyerWithAppsFlyerDevKey:(NSString *)appsFlyerDevKey
+                            andAppleAppID:(NSString *)appleAppID;
+
++ (void) activeTrack;
 
 + (void) trackEvent:(NSString *) event;
 

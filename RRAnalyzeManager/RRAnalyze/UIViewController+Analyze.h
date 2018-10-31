@@ -16,10 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
  是否跟踪页面
  */
 @property (nonatomic) BOOL trackScreen;
-/**
- 确认trackScreen是否被设置过
- */
-@property (nonatomic) BOOL trackSeted;
 
 @end
 

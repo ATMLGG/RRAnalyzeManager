@@ -13,6 +13,14 @@
 static char * TrackKey = "TrackKey";
 static char * TrackSeted = "TrackSeted";
 
+@interface UIViewController()
+/**
+ 确认trackScreen是否被设置过
+ */
+@property (nonatomic) BOOL trackSeted;
+
+@end
+
 @implementation UIViewController (Analyze)
 
 + (void) load{
