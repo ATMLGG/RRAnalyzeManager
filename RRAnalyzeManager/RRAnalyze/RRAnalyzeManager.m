@@ -67,32 +67,16 @@
 
 + (void) activeTrack {
     
-    [FBSDKAppEvents activateApp];
-    [[AppsFlyerTracker sharedTracker] trackAppLaunch];
-}
-
-+ (void) trackEvent:(NSString *) event{
-    
-    if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachNone) {
-        NSLog(@"");
-        
-    }
-    
-    if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachFirebase) {
-        NSLog(@"");
-    }
-    
-    if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachUMeng) {
-        NSLog(@"");
+    if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachFacebook) {
+        [FBSDKAppEvents activateApp];
     }
     
     if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachAppsFlyer) {
-        NSLog(@"");
+        [[AppsFlyerTracker sharedTracker] trackAppLaunch];
     }
-    
-    if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachFacebook) {
-        NSLog(@"");
-    }
+}
+
++ (void) trackEvent:(NSString *) event{
     
     if ([RRAnalyzeManager shareManager].trackPattern != AnalyzePatternDebug &&
         [RRAnalyzeManager shareManager].trackApproach != AnalyzeApproachNone) {
