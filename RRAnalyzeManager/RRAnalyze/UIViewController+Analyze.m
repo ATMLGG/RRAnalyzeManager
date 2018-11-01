@@ -49,7 +49,7 @@ static char * TrackSeted = "TrackSeted";
 - (void) ex_viewDidLoad{
     
     if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachFirebase &&
-        !([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachNone)) {
+        [RRAnalyzeManager shareManager].trackApproach != AnalyzeApproachNone) {
         
         switch ([RRAnalyzeManager shareManager].trackPattern) {
                 case AnalyzePatternTrackAll:{
@@ -80,7 +80,7 @@ static char * TrackSeted = "TrackSeted";
 - (void) ex_viewWillAppear:(BOOL) animated{
     
     if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachUMeng &&
-        !([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachNone)) {
+        [RRAnalyzeManager shareManager].trackApproach != AnalyzeApproachNone) {
         
         switch ([RRAnalyzeManager shareManager].trackPattern) {
                 case AnalyzePatternTrackAll:{
@@ -113,7 +113,7 @@ static char * TrackSeted = "TrackSeted";
 - (void) ex_viewWillDisappear:(BOOL) animated{
     
     if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachUMeng &&
-        !([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachNone)) {
+        [RRAnalyzeManager shareManager].trackApproach != AnalyzeApproachNone) {
         
         switch ([RRAnalyzeManager shareManager].trackPattern) {
                 case AnalyzePatternTrackAll:{

@@ -25,7 +25,7 @@ typedef NS_ENUM(NSUInteger, AnalyzePattern) {
  *可同时使用多种方式
  */
 typedef enum AnalyzeApproach {
-    AnalyzeApproachNone         = 1,
+    AnalyzeApproachNone         = 0,
     AnalyzeApproachFacebook     = 1 << 1,
     AnalyzeApproachFirebase     = 1 << 2,
     AnalyzeApproachAppsFlyer    = 1 << 3,

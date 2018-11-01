@@ -24,7 +24,7 @@
     
     //FB
     [RRAnalyzeManager initFacebookWithApplication:application andLaunchOptions:launchOptions];
-
+    
     //Firbase
     [RRAnalyzeManager initFirebaseWithNothing];
     
@@ -32,7 +32,7 @@
     [RRAnalyzeManager initAppsFlyerWithAppsFlyerDevKey:@"" andAppleAppID:@""];
 
 
-    [RRAnalyzeManager shareManager].trackPattern = AnalyzePatternDebug;
+    [RRAnalyzeManager shareManager].trackPattern = AnalyzePatternTrackCustom;
     [RRAnalyzeManager shareManager].trackDictionary = @{
                                                         @"ViewController":@"showViewController",
                                                         @"OtherViewController":@"showOtherVC"

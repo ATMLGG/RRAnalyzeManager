@@ -26,6 +26,8 @@
                   andChannel:(NSString *)channel
              andScenarioType:(eScenarioType)type {
     
+    [RRAnalyzeManager shareManager].trackApproach |= AnalyzeApproachUMeng;
+    
     [UMConfigure initWithAppkey:appkey channel:channel];
     [MobClick setScenarioType:type];
     
@@ -38,17 +40,22 @@
 + (void) initFacebookWithApplication:(UIApplication *)application
                     andLaunchOptions:(NSDictionary *)launchOptions {
     
+    [RRAnalyzeManager shareManager].trackApproach |= AnalyzeApproachFacebook;
+    
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
 }
 
 + (void) initFirebaseWithNothing {
     
+    [RRAnalyzeManager shareManager].trackApproach |= AnalyzeApproachFirebase;
     [FIRApp configure];
 }
 
 + (void) initAppsFlyerWithAppsFlyerDevKey:(NSString *)appsFlyerDevKey
                             andAppleAppID:(NSString *)appleAppID {
+    
+    [RRAnalyzeManager shareManager].trackApproach |= AnalyzeApproachAppsFlyer;
     
     [AppsFlyerTracker sharedTracker].appsFlyerDevKey = appsFlyerDevKey;
     [AppsFlyerTracker sharedTracker].appleAppID = appleAppID;
@@ -66,8 +73,29 @@
 
 + (void) trackEvent:(NSString *) event{
     
+    if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachNone) {
+        NSLog(@"");
+        
+    }
+    
+    if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachFirebase) {
+        NSLog(@"");
+    }
+    
+    if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachUMeng) {
+        NSLog(@"");
+    }
+    
+    if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachAppsFlyer) {
+        NSLog(@"");
+    }
+    
+    if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachFacebook) {
+        NSLog(@"");
+    }
+    
     if ([RRAnalyzeManager shareManager].trackPattern != AnalyzePatternDebug &&
-        !([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachNone)) {
+        [RRAnalyzeManager shareManager].trackApproach != AnalyzeApproachNone) {
         
         if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachFirebase) {
             [FIRAnalytics logEventWithName:event parameters:nil];
@@ -90,7 +118,7 @@
 + (void) trackEvent:(NSString *) event value:(NSDictionary *) paramter{
     
     if ([RRAnalyzeManager shareManager].trackPattern != AnalyzePatternDebug &&
-        !([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachNone)) {
+        [RRAnalyzeManager shareManager].trackApproach != AnalyzeApproachNone) {
         
         if ([RRAnalyzeManager shareManager].trackApproach & AnalyzeApproachFirebase) {
             [FIRAnalytics logEventWithName:event parameters:paramter];        }
