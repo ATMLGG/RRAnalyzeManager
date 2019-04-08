@@ -135,9 +135,9 @@ Pod::Spec.new do |spec|
   # spec.dependency "JSONKit", "~> 1.4"
   spec.dependency 'AppsFlyerFramework', '~> 4.8.9'
   spec.dependency 'Firebase/Core'
-  spec.dependency 'UMCCommon', '~> 1.5.2'
+  spec.dependency 'UMCCommon', '~> 2.0.0'
   spec.dependency 'UMCSecurityPlugins', '~> 1.0.6'
-  spec.dependency 'UMCAnalytics', '~> 5.5.1'
+  spec.dependency 'UMCAnalytics', '~> 6.0.2'
   spec.dependency 'FBSDKCoreKit', '~> 4.38.0'
 
 end
