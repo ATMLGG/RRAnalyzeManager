@@ -2,7 +2,7 @@
 AF/FB/Firbase/友盟打点集成，屏幕追踪
 
 ``` ruby
-    pod 'RRAnalyzeManager', '~> 1.0.3'
+    pod 'RRAnalyzeManager', '~> 1.0.5'(UMemg版本6.0.0以下使用1.0.4)
 ```
 
 使用方法:
