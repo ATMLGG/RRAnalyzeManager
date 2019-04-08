@@ -136,7 +136,6 @@ Pod::Spec.new do |spec|
   spec.dependency 'AppsFlyerFramework', '~> 4.8.9'
   spec.dependency 'Firebase/Core'
   spec.dependency 'UMCCommon', '~> 2.0.0'
-  spec.dependency 'UMCSecurityPlugins', '~> 1.0.6'
   spec.dependency 'UMCAnalytics', '~> 6.0.2'
   spec.dependency 'FBSDKCoreKit', '~> 4.38.0'
 
