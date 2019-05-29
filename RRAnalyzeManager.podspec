@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "RRAnalyzeManager"
-  spec.version      = "1.0.5"
+  spec.version      = "1.0.6"
   spec.summary      = "打点集成，屏幕追踪"
 
   # This description is used to generate tags and improve search results.
@@ -133,10 +133,10 @@ Pod::Spec.new do |spec|
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
-  spec.dependency 'AppsFlyerFramework', '~> 4.8.9'
+  spec.dependency 'AppsFlyerFramework'
   spec.dependency 'Firebase/Core'
-  spec.dependency 'UMCCommon', '~> 2.0.0'
-  spec.dependency 'UMCAnalytics', '~> 6.0.2'
-  spec.dependency 'FBSDKCoreKit', '~> 4.38.0'
+  spec.dependency 'UMCCommon'
+  spec.dependency 'UMCAnalytics'
+  spec.dependency 'FBSDKCoreKit'
 
 end
